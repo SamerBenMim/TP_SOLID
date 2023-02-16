@@ -2,13 +2,13 @@ package com.directi.training.isp.exercise;
 
 import java.util.Random;
 
-public class Sensor
+public class Sensor 
 {
-    public void register(Door door)
+    public void register(ISensingObject sensorClientDoor )
     {
         while (true) {
             if (isPersonClose()) {
-                door.proximityCallback();
+                sensorClientDoor.proximityCallback();
                 break;
             }
         }

@@ -4,7 +4,7 @@ import java.util.TimerTask;
 
 public class Timer
 {
-    public void register(long timeOut, final Door door)
+    public void register(long timeOut,  final ITimedObject timedObject)
     {
         java.util.Timer timerUtility = new java.util.Timer();
         timerUtility.schedule(new TimerTask()
@@ -12,7 +12,7 @@ public class Timer
             @Override
             public void run()
             {
-                door.timeOutCallback();
+                timedObject.timeOutCallback();
             }
         }, timeOut);
     }
