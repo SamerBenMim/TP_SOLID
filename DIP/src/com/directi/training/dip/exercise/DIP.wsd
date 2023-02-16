@@ -1,0 +1,78 @@
+@startuml
+interface IReader
+{
+    String read()
+}
+interface IWriter {
+    void write(String encodedLine)
+}
+
+
+class EncodingModule {
+  void encode(IReader reader, IWriter writer)
+}
+
+class MyDatabaseWriter implements IWriter{
+ v  void write(String input)
+}
+class MyFileReader implements IReader {
+  String fileName;
+  String read()
+
+}
+
+class MyFileWriter implements IWriter  {
+    void write(String encodedLine)
+}
+class MyNetworkReader implements IReader{
+    String _protocol;
+    String _host;
+    String _file;
+    String read()
+}
+EncodingModule --> IReader
+EncodingModule --> IWriter
+
+class MyDatabase {
+     Map<Integer, String> data;
+     int count;
+     int write(String inputString)
+
+}
+EncodingModuleClient--> EncodingModule
+
+
+' class Duck implements IDuck {
+'     public void quack()
+'     public void swim()
+     
+
+' }
+'  Pool --> IDuck
+
+' class ElectronicDuck implements IDuck{
+'         void quack() throws DuckIsOffException;
+'         void swim() throws DuckIsOffException;
+'         void turnOn()
+'         void turnOff()
+
+' }
+' class IDuckException{
+'     public IDuckException(String message)
+' }
+' class DuckIsOffException{
+'     public DuckIsOffException(String message)
+' }
+
+
+
+
+' interface IDuck {  
+'     void quack() throws IDuckException;
+'     void swim() throws IDuckException;   
+' }
+
+' IDuck --> IDuckException
+' ElectronicDuck --> DuckIsOffException
+
+@enduml

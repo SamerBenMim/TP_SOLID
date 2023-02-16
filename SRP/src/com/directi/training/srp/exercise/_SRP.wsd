@@ -1,4 +1,4 @@
-@startuml
+@startuml diagramme de classes 
 class CarManager
 CarManager --> CarRater
 CarManager --> CarsFormatter
