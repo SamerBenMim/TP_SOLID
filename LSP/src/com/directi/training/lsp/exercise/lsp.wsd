@@ -1,0 +1,35 @@
+@startuml
+class Duck implements IDuck {
+    public void quack()
+    public void swim()
+     
+
+}
+ Pool --> IDuck
+
+class ElectronicDuck implements IDuck{
+        void quack() throws DuckIsOffException;
+        void swim() throws DuckIsOffException;
+        void turnOn()
+        void turnOff()
+
+}
+class IDuckException{
+    public IDuckException(String message)
+}
+class DuckIsOffException{
+    public DuckIsOffException(String message)
+}
+
+
+
+
+interface IDuck {  
+    void quack() throws IDuckException;
+    void swim() throws IDuckException;   
+}
+
+IDuck --> IDuckException
+ElectronicDuck --> DuckIsOffException
+
+@enduml

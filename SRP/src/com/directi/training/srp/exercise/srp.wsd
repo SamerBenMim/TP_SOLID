@@ -1,0 +1,9 @@
+@startuml
+class CarManager
+CarManager --> CarRater
+CarManager --> CarsFormatter
+CarManager --> carRepository
+carRepository --> Car
+CarsFormatter -->carRepository
+CarRater --> carRepository
+@enduml

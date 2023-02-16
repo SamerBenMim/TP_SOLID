@@ -1,0 +1,28 @@
+@startuml
+class TimeSlot implements IRessource {
+
+}
+
+class SpaceSlot implements IRessource{
+
+}
+
+
+
+
+interface IRessource {  
+    public int allocate();
+    public void free(int resourceId);    
+}
+
+ResourceAllocator --> IRessource
+class ResourceAllocator {
+
+}
+' CarManager --> CarRater
+' CarManager --> CarsFormatter
+' CarManager --> carRepository
+' carRepository --> Car
+' CarsFormatter -->carRepository
+' CarRater --> carRepository
+@enduml
