@@ -1,0 +1,78 @@
+@startuml
+interface Door
+{
+    void lock();
+    void unlock();
+    void open();
+    void close();
+}
+interface ISensingObject {
+    void proximityCallback();
+}
+
+interface ITimedObject {
+    void timeOutCallback();
+}
+class SensingDoor implements Door , ISensingObject {
+    void lock();
+    void unlock();
+    void open();
+    void close();
+    void proximityCallback();
+}
+
+class TimedDoor implements Door, ITimedObject {
+    void lock();
+    void unlock();
+    void open();
+    void close();
+    void timeOutCallback();
+}
+class Sensor {
+    void register(ISensingObject obj);
+    void unregister(ISensingObject obj);
+    void sense();
+}
+
+class Timer {
+    void register(ITimedObject obj);
+    void unregister(ITimedObject obj);
+    void timeOut();
+}
+Timer --> ITimedObject
+Sensor --> ISensingObject
+
+' class Duck implements IDuck {
+'     public void quack()
+'     public void swim()
+     
+
+' }
+'  Pool --> IDuck
+
+' class ElectronicDuck implements IDuck{
+'         void quack() throws DuckIsOffException;
+'         void swim() throws DuckIsOffException;
+'         void turnOn()
+'         void turnOff()
+
+' }
+' class IDuckException{
+'     public IDuckException(String message)
+' }
+' class DuckIsOffException{
+'     public DuckIsOffException(String message)
+' }
+
+
+
+
+' interface IDuck {  
+'     void quack() throws IDuckException;
+'     void swim() throws IDuckException;   
+' }
+
+' IDuck --> IDuckException
+' ElectronicDuck --> DuckIsOffException
+
+@enduml
