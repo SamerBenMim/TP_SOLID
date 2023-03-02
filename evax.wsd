@@ -1,0 +1,71 @@
+@startuml
+allow_mixing
+package View{
+artifact PageRDV
+artifact PageGetPass
+artifact AuthPage
+artifact Profile
+artifact ConvertVacPage
+}
+
+
+package ViewModel{
+
+
+  class AuthVM{
+      login()
+      register()
+      logout()
+  }
+    class RDVVM{
+        schedule()
+        reschedule()
+        sendReminder()
+    }
+    class PassVM{
+        getPass()
+        convertPass()
+    }
+    class ProfileVM{
+       
+    }
+
+}
+package Model {
+
+class User{ 
+   String Email
+   String Password 
+   String LastName 
+   String FirstName
+   String CIN 
+   Date BirthDate
+   String PhoneNumber
+   }
+class RDV{ 
+    Date date
+    String Location
+    }
+class Pass{
+    String Type
+    Date date
+}
+class SMS{
+}
+
+}
+ProfileVM --> Profile
+ProfileVM --> User
+RDVVM --> PageRDV
+AuthVM --> AuthPage
+PassVM --> PageGetPass
+RDVVM --> RDV
+RDVVM --> SMS
+AuthVM --> User
+PassVM --> Pass
+PassVM --> ConvertVacPage
+RDV -- User
+Pass -- User 
+actor user
+user --> View
+@enduml
