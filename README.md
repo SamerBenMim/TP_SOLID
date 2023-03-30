@@ -25,6 +25,6 @@ For each principle, there are three files in Sources folder;
 
  - **After** files: Related Principle applied version of the case
 
- - **Exercise** files: Exercise for pratice 
+ - **Exercise** files: Exercise for practice 
 
 to show the difference in simple and clear way.
